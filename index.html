@@ -2,6 +2,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
 <title>Сума на ефективните температури - тестов сървър</title>
 <style>
 
@@ -75,9 +76,9 @@ public broker and topic you can use for testing.
 */
 
 //settings BEGIN
-	var MQTTbroker = 'broker.hivemq.com';
-	var MQTTport = 8000;
-	var MQTTsubTopic = 'tarnovo/temp/#'; //works with wildcard # and + topics dynamically now
+	var MQTTbroker = 'agrosens.xyz';
+	var MQTTport = 8883;
+	var MQTTsubTopic = 'bee/temp'; //works with wildcard # and + topics dynamically now
 //settings END
 
 	var chart; // global variuable for chart
