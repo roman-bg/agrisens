@@ -1,0 +1,121 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+ <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+<title>Сума на ефективните температури - тестов сървър</title>
+<style>
+@media only screen and (orientation:portrait){
+  body {
+    height: 100vw;
+    transform: rotate(90deg);
+  }
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
+li {
+  float: left;
+}
+
+li a, .dropbtn {
+  display: inline-block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover, .dropdown:hover .dropbtn {
+  background-color: green;
+}
+
+li.dropdown {
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+</style>
+
+<script>
+window.onload = function() {
+
+var dataPoints = [];
+
+var chart = new CanvasJS.Chart("chartContainer", {
+	animationEnabled: true,
+	theme: "light2",
+	title: {
+		text: "Сума на ефективните температури"
+	},
+	axisY: {
+		title: "СЕТ",
+		titleFontSize: 24,
+		includeZero: true
+	},
+	data: [{
+		type: "column",
+		yValueFormatString: "#,### DD",
+		dataPoints: dataPoints
+	}]
+});
+
+function addData(data) {
+	for (var i = 0; i < data.length; i++) {
+		dataPoints.push({
+			x: new Date(data[i].date),
+			y: data[i].temp
+		});
+	}
+	chart.render();
+
+}
+
+$.getJSON("https://api.allorigins.win/raw?url=http://87.254.182.122/climate.json", addData);
+
+}
+</script>
+
+
+</head>
+
+<body><!--Start the javascript ball rolling and connect to the mqtt broker-->
+<ul>
+  <li><a class="active" href="index.html">Начало</a></li>
+  <li><a href="dd.html">Суми по видове растителни видове</a></li>
+  <li><a href="set.html">Сума на ефективните температури</a></li>
+  <li><a href="area.html">Покритие</a></li>
+</ul>
+</br></br>
+<div>
+<div id="chartContainer" style="height: 300px; max-width: 920px; margin: 40px auto;"></div>
+<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
+<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></div>
+	</body>
+</html>
