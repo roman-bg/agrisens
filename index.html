@@ -1,68 +1,21 @@
 <html>
+<meta charset="UTF-8">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
- <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
- <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1.0">
+<link rel="icon" type="image/x-icon" href="favicon.ico" />
 <title>Сума на ефективните температури - тестов сървър</title>
-<style>
-@media only screen and (orientation:portrait){
-  body {
-    height: 100vw;
-    transform: rotate(90deg);
-  }
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript">
+function scrollto(div)
+{
+ $('html,body').animate(
+ {
+  scrollTop: $("#"+div).offset().top
+ },'slow');
 }
-
-ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #333;
-}
-
-li {
-  float: left;
-}
-
-li a, .dropbtn {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-}
-
-li a:hover, .dropdown:hover .dropbtn {
-  background-color: green;
-}
-
-li.dropdown {
-  display: inline-block;
-}
-
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-}
-
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  text-align: left;
-}
-
-.dropdown-content a:hover {background-color: #f1f1f1;}
-
-.dropdown:hover .dropdown-content {
-  display: block;
-</style>
-
+</script>
 <script>
 window.onload = function() {
 
@@ -101,21 +54,158 @@ $.getJSON("https://cors.bridged.cc/http://agrosens.xyz/climate.json", addData);
 
 }
 </script>
-
-
 </head>
+<body>
+<button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
+<div id="header">
+ <li id="site_name">СЕТ</li>
+ <li onclick="scrollto('home');">HOME</li>
+ <li onclick="scrollto('about');">СУМИ ПО ВИДОВЕ</li>
+ <li onclick="scrollto('algabot');">ОТНОСНО</li>
 
-<body><!--Start the javascript ball rolling and connect to the mqtt broker-->
-<ul>
-  <li><a class="active" href="index.html">Начало</a></li>
-  <li><a href="dd.html">Суми по видове растителни видове</a></li>
-  <li><a href="set.html">Сума на ефективните температури</a></li>
-  <li><a href="area.html">Покритие</a></li>
-</ul>
-</br></br>
-<div>
-<div id="chartContainer" style="height: 300px; max-width: 920px; margin: 40px auto;"></div>
+ <li onclick="scrollto('contact');">КОНТАКТИ</li>
+</div>
+
+<div id="home">
+ <h1>Начало</p></h1>
+ <hr></br>
+ <div id="chartContainer" style="height: 300px; max-width: 920px; margin: 10px auto;"></div>
 <script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
 <script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></div>
-	</body>
-</html>
+</div>
+
+<div id="about">
+<h1>Суми по видове растителни видове</p></h1>
+<hr></br>
+ <table style="width:100%">
+  <tr>
+    <th>Растение</th>
+    <th>Сума</th>
+   
+  </tr>
+  <tr>
+    <td>Подбел</td>
+    <td>5.3</td>
+   
+  </tr>
+   <tr>
+    <td>Ива</td>
+    <td>23.9</td>
+   
+  </tr>
+   <tr>
+    <td>Глухарче</td>
+    <td>92.6</td>
+   
+  </tr>
+   <tr>
+    <td>Червен бъз</td>
+    <td>159.6</td>
+   
+  </tr>
+   <tr>
+    <td>Вишна</td>
+    <td>178.4</td>
+   
+  </tr>
+   <tr>
+    <td>Круша</td>
+    <td>159.7</td>
+   
+  </tr>
+  <tr>
+    <td>Бяла детелина</td>
+    <td>355</td>
+   
+  </tr>
+  <tr>
+    <td>Шипка</td>
+    <td>417.2</td>
+   
+  </tr>
+   <tr>
+    <td>Малина</td>
+    <td>439</td>
+   
+  </tr>
+  <tr>
+    <td>Жълта комунига</td>
+    <td>499.4</td>
+   
+  </tr>
+  <tr>
+    <td>Липа</td>
+    <td>699.8</td>
+   
+  </tr>
+  <tr>
+    <td>Бяла акация</td>
+    <td>40</td>
+   
+  </tr>
+</table>
+</div>
+<div id="algabot">
+<h1>Сума на ефективните температури</h1>
+<hr></br>
+
+
+<p style="text-align:justify">1. Температурата, под чийто праг растението загива. Например – за далията критични са температурите под нулата, а за какаовото дърво – температурата под +14 градуса. 2. Температурата, при която растението започва да расте – т. нар. биологичен минимум. Той е специфичен за всяка една култура. При пшеницата, овеса, ечемика и граха това е +5 градуса. Тези култури наричаме студоустойчиви. А при памука биологическият минимум е +12 градуса. Като средна стойност за мнозинството култури, отглеждани в умерения пояс, биологичният минимум е равен на +10 градуса.</p>
+
+<p style="text-align:justify">Нека сега да разгледаме и самата сума на ефективните температури.  Тази година среднодневната температура в района на Велико Търново премина 10 градуса на 2-ри март. Отваряме градинарския си дневник и записваме: 2-ри март: +12.45, 3-ти март: +15.72. И така всеки ден отбелязваме среднодневните температури. Опа! 5-ти март: +8.1. Тази цифра няма да я запишем, нас ни интересуват само дните, в които среднодневната температура надвишава +10 градуса. И така всеки ден.
+
+Накрая събираме сумата от среднодневните температури на всички дни, когато тя е била над +10 градуса. Това именно е сумата на ефективните температури. Към определен ден тя ще стане 100 градуса, а към друг – 1000. В една година тя ще достигне 500 градуса по-бързо, а през друга по-бавно.
+
+
+</p>
+<p>От гледна точка на пчеларите важен момент в стопанската им година е момента на встъпване във фазата на цъфтеж на различните видове растения. С помоща на показателя сума на ефективните температури, той може лесно да се прогнозира и използва при планиране на различните дейности извършвани в пчелина. Използвайки графиката в този сайт вие може да следите всеки ден показателя в района на град Долна Оряховица и радиус от 30 км около него. А в раздела Суми по видове растителни видове да се информирате при каква стойност на показателя ще настъпи фазата на цъфтеж при важни от гедна точка на пчелите диворастящи растения в района. </p>
+</div>
+<div id="contact">
+<h1>Може да се свържете с нас чрез формата или на телефон 0888 785 019</h1>
+<hr></br>
+<form target="_blank" action="https://formsubmit.co/info@agrisense.xyz" method="POST">
+<label>
+  
+ 
+ </label>
+
+<label>
+
+    Вашето име:
+  <input type="text" name="name">
+</label><br>
+<label>
+    Вашият email:
+  <input type="text" name="email">
+ </label><br>
+ <label>
+    Вашето съобщение (поръчка):
+  <textarea name="message"></textarea>
+ <label>
+  <button type="submit">Изпрати</button>
+<input type="hidden" name="_next" value="https://www.agrisense.xyz/index.html">
+</form>
+</div>
+<script>
+//Get the button
+var mybutton = document.getElementById("myBtn");
+
+// When the user scrolls down 20px from the top of the document, show the button
+window.onscroll = function() {scrollFunction()};
+
+function scrollFunction() {
+  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+    mybutton.style.display = "block";
+  } else {
+    mybutton.style.display = "none";
+  }
+}
+
+// When the user clicks on the button, scroll to the top of the document
+function topFunction() {
+  document.body.scrollTop = 0;
+  document.documentElement.scrollTop = 0;
+}
+</script>
+</body>
+</html> 
