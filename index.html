@@ -16,44 +16,45 @@ function scrollto(div)
  },'slow');
 }
 </script>
-<script>
-window.onload = function() {
-
-var dataPoints = [];
-
-var chart = new CanvasJS.Chart("chartContainer", {
-	animationEnabled: true,
-	theme: "light2",
-	title: {
-		text: "Сума на ефективните температури"
-	},
-	axisY: {
-		title: "СЕТ",
-		titleFontSize: 24,
-		includeZero: true
-	},
-	data: [{
-		type: "column",
-		yValueFormatString: "#,### DD",
-		dataPoints: dataPoints
-	}]
-});
-
-function addData(data) {
-	for (var i = 0; i < data.length; i++) {
-		dataPoints.push({
-			x: new Date(data[i].date),
-			y: data[i].temp
-		});
-	}
-	chart.render();
-
-}
-
-$.getJSON("https://cors.bridged.cc/http://agrosens.xyz/climate.json", addData);
-
-}
-</script>
+	
+	<script src="http://code.highcharts.com/highcharts.js"></script>
+	<script type="text/javascript">
+        $(function () {
+                var processed_json = new Array();   
+                $.getJSON('https://cors.bridged.cc/http://agrosens.xyz/climate.json', function(data) {
+                    // Populate series
+                    for (i = 0; i < data.length; i++){
+                        processed_json.push([data[i].date, data[i].temp]);
+                    }
+                 
+                    // draw chart
+                    $('#container').highcharts({
+                    chart: {
+                        type: "column"
+                    },
+                    title: {
+                        text: "Сума на ефективните температури"
+                    },
+                    xAxis: {
+                        type: 'category',
+                        allowDecimals: false,
+                        title: {
+                            text: ""
+                        }
+                    },
+                    yAxis: {
+                        title: {
+                            text: "СЕТ"
+                        }
+                    },
+                    series: [{
+	                    name: 'СЕТ',
+                        data: processed_json
+                    }]
+                }); 
+            });
+        });
+    </script>
 </head>
 <body>
 <button onclick="topFunction()" id="myBtn" title="Go to top">Top</button>
@@ -69,9 +70,8 @@ $.getJSON("https://cors.bridged.cc/http://agrosens.xyz/climate.json", addData);
 <div id="home">
  <h1>Начало</p></h1>
  <hr></br>
- <div id="chartContainer" style="height: 300px; max-width: 920px; margin: 10px auto;"></div>
-<script src="https://canvasjs.com/assets/script/jquery-1.11.1.min.js"></script>
-<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script></div>
+ <div id="container" style="height: 450px; max-width: 920px; margin: 10px auto;"></div>
+
 </div>
 
 <div id="about">
