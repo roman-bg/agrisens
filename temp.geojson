@@ -1,0 +1,11 @@
+{
+  "type": "Feature",
+  "geometry": {
+    "type": "Point",
+    "coordinates": [25.617151,43.075672]
+  },
+  "properties": {
+    "date":"2021-04-28", 
+    "temp": 92.35249999999998
+  }
+}
