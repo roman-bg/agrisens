@@ -164,10 +164,10 @@ public broker and topic you can use for testing.
 <body onload="init();"><!--Start the javascript ball rolling and connect to the mqtt broker-->
 
 <div class="container">
-  <h2>Инфо</h2>
+  <h2></h2>
   <!-- Trigger the modal with a button -->
-  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">СЕТ</button>
-
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">Инфо</button>
+<button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">Абонамент</button>
   <!-- Modal -->
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
@@ -179,9 +179,10 @@ public broker and topic you can use for testing.
           <h4 class="modal-title">Сума на ефективните температури</h4>
         </div>
         <div class="modal-body">
-          <p align="justify">Насекомите са животни, характеризиращи се непостоянна телесна температура. Тяхното развитие е възможно само в определен температурен, видово специфичен диапазон. Границите, в които е възможно развитието на един вид се наричат прагове за развитие, а температурите лежащи по-високо от долния праг и не надвишаващи горния праг се наричат ефективни температури. За да завършат своето развитие насекомите се нуждаят от определено количество топлинна, която е постоянна за дадения вид - сума на ефективните температури (СЕТ). СЕТ е видово специфична величина, така например за развитието на едно поколение на цвеклова листна въшка тя е 120, а при ябълковия плодов червей 725, като на всеки етап от развитието на насекомото отговаря определена СЕТ. </p>
+         <p align="justify">Насекомите са животни, характеризиращи се непостоянна телесна температура. Тяхното развитие е възможно само в определен температурен, видово специфичен диапазон. Границите, в които е възможно развитието на един вид се наричат прагове за развитие, а температурите лежащи по-високо от долния праг и не надвишаващи горния праг се наричат ефективни температури. За да завършат своето развитие насекомите се нуждаят от определено количество топлинна, която е постоянна за дадения вид - сума на ефективните температури (СЕТ). СЕТ е видово специфична величина, така например за развитието на едно поколение на цвеклова листна въшка тя е 120, а при ябълковия плодов червей 725, като на всеки етап от развитието на насекомото отговаря определена СЕТ. </p>
           <p align="justify">Откривайки тази закономерност модерната ентомология е успяла да определи СЕТ при над 120 вида насекоми-вредители, което позволява точното прогнозиране на тяхната поява и определяне на фазата им на развитие. Сумата на ефективните температури (СЕТ) се определя по формулата C = (t - t1)n, където t - e среднодневната температура, t1 - долния праг за развитие, а n - е продължителността на развитие в дни. Така изчисления показател е специфичен за всеки един вид.</p>
-           <p align="justify">Графиката на сайта показва дневната сума на ефективните температури, актуална за територията на общините Велико Търново, Горна Оряховица, Лясковец и Дряново. <a href="./pest.pdf">Тук можете да изтеглите таблица със СЕТ</a> отговарящи за различни неприятели по селскостопанските култури. Можете да се абонирате и всекидневно да получавате тази информация на вашия email. За целта се свържете с нас използвайки този email: <b>info@agrisens.xyz</b></p>
+           <p align="justify">Графиката на сайта показва дневната сума на ефективните температури, актуална за територията на общините Велико Търново, Горна Оряховица, Лясковец и Дряново. <a href="./pest.pdf">Тук можете да изтеглите таблица със СЕТ</a> отговарящи за различни неприятели по селскостопанските култури. Можете да се абонирате и всекидневно да получавате тази информация на вашия email. За целта попълнете формата в раздела абонамент.</p>
+       
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Затвори</button>
@@ -190,7 +191,27 @@ public broker and topic you can use for testing.
       
     </div>
   </div>
-  
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Форма за абонамент</h4>
+        </div>
+        <div class="modal-body">
+         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfopFSBx2OARJLFk5VwCOJqK0kYV67WDM3pmEG5eQT7fjEvPg/viewform?embedded=true" width="580" height="460" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+       
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Затвори</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+
 </div>
 
 <div id="container" style="height: 500px; min-width: 500px">
